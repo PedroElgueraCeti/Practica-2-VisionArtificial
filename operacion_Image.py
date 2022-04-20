@@ -16,6 +16,7 @@
 #Traslación A fin.
 #Transpuesta
 #Proyección
+#gg
 
 from ast import Try
 import cv2
