@@ -1,3 +1,5 @@
+#Pedro Miguel Elguera Mora 19110148
+
 from ast import Try
 import cv2
 import numpy as np
