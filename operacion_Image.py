@@ -1,5 +1,22 @@
 #Pedro Miguel Elguera Mora 19110148
-#actualizar
+#Practica 2
+#La suma
+#La resta
+#La división
+#La Multiplicación
+#Logaritmo natural
+#Raíz
+#Potencia
+#Conjunción
+#Disyunción
+#Negación
+#Traslación
+#Escalado
+#Rotación
+#Traslación A fin.
+#Transpuesta
+#Proyección
+
 from ast import Try
 import cv2
 import numpy as np
@@ -180,7 +197,22 @@ def operaciones():
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r 
 
-    if opc >= 14:
+    if opc == 14:
+        etiqueta_titular.configure(text="Potencia por metodo de numpy SQRT")
+        vector = np.vectorize(np.float)
+        img1l =vector(img2)
+        #img1l=np.array(list(map(np.float, img1)))
+        image=np.power(img1l,1.1)
+        image = imutils.resize(image,height=350)
+        image = np.asarray(image, dtype = int)
+        #image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r
+
+    if opc >= 15:
         opc=0
         
 raiz = Tk()
@@ -198,7 +230,3 @@ resultadoImagen.place(x=400,y=50)
 keyboard.on_press_key("p", lambda _:operaciones())
 
 raiz.mainloop() 
-
-
-
-
