@@ -219,8 +219,10 @@ def operaciones():
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r 
     
+
     if opc >= 16:
         opc=0
+        
         
 raiz = Tk()
 raiz.title("Operador de imagenes") #Cambiar el nombre de la ventana 
