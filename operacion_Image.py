@@ -246,7 +246,6 @@ def operaciones():
     
     if opc == 18:
         etiqueta_titular.configure(text="Escalado")
-       
         image = imutils.resize(img1,height=400)
         image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
         #print(image)
@@ -255,7 +254,22 @@ def operaciones():
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r 
     
-    if opc >= 19:
+    if opc == 19:
+        etiqueta_titular.configure(text="Rotacion")
+        ancho = img1.shape[1] #columnas
+        alto = img1.shape[0] # filas
+        # Rotación
+        M = cv2.getRotationMatrix2D((ancho//2,alto//2),15,1)
+        image = cv2.warpAffine(img1,M,(ancho,alto))
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+    
+    if opc >= 20:
         opc=0
         
 
