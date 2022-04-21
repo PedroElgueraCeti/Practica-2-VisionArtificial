@@ -219,11 +219,46 @@ def operaciones():
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r 
     
+    if opc == 16:
+        etiqueta_titular.configure(text="Negacion")
+        image= 255-img1
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
 
-    if opc >= 16:
+    if opc == 17:
+        etiqueta_titular.configure(text="Translasion")
+        ancho = img1.shape[1] #columnas
+        alto = img1.shape[0] #fila
+        M = np.float32([[1,0,100],[0,1,150]])
+        image = cv2.warpAffine(img1,M,(ancho,alto))
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+    
+    if opc == 18:
+        etiqueta_titular.configure(text="Escalado")
+       
+        image = imutils.resize(img1,height=400)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+    
+    if opc >= 19:
         opc=0
         
-        
+
 raiz = Tk()
 raiz.title("Operador de imagenes") #Cambiar el nombre de la ventana 
 raiz.geometry("1200x480") #Configurar tamaño
