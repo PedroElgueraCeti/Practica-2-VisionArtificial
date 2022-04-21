@@ -207,8 +207,19 @@ def operaciones():
         img3r=ImageTk.PhotoImage(image=im)
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r  
-
-    if opc >= 15:
+    
+    if opc == 15:
+        etiqueta_titular.configure(text="Disyuncion")
+        image=cv2.bitwise_or(img1,img2)
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+    
+    if opc >= 16:
         opc=0
         
 raiz = Tk()
