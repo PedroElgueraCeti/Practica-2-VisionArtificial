@@ -16,7 +16,6 @@
 #Traslación A fin.
 #Transpuesta
 #Proyección
-#gg
 
 from ast import Try
 import cv2
@@ -199,19 +198,15 @@ def operaciones():
         resultadoImagen.image = img3r 
 
     if opc == 14:
-        etiqueta_titular.configure(text="Potencia por metodo de numpy SQRT")
-        vector = np.vectorize(np.float)
-        img1l =vector(img2)
-        #img1l=np.array(list(map(np.float, img1)))
-        image=np.power(img1l,1.1)
+        etiqueta_titular.configure(text="Conjuncion Python")
+        image=cv2.bitwise_and(img1,img2)
         image = imutils.resize(image,height=350)
-        image = np.asarray(image, dtype = int)
-        #image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
         #print(image)
         im=PIL.Image.fromarray(image,'RGB')
         img3r=ImageTk.PhotoImage(image=im)
         resultadoImagen.config(image=img3r)
-        resultadoImagen.image = img3r
+        resultadoImagen.image = img3r  
 
     if opc >= 15:
         opc=0
