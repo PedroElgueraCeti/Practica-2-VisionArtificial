@@ -143,7 +143,7 @@ def operaciones():
         try:
             #image=np.nan_to_num(img1/img2)
             with np.errstate(divide='ignore', invalid='ignore'):
-                image = img1 / img2
+                image = img1 // img2
                 image[img2 == 0] = 0    
             #resimage = int(img1) / int (img2) if int(img2) != 0 else 0  
         except:
@@ -269,7 +269,34 @@ def operaciones():
         resultadoImagen.config(image=img3r)
         resultadoImagen.image = img3r 
     
-    if opc >= 20:
+    if opc == 20:
+        etiqueta_titular.configure(text="Translacion a Fin")
+        rows,cols = img1.shape[:2]
+        pts1 = np.float32([[50,50],[200,50],[50,200]])
+        pts2 = np.float32([[10,100],[200,50],[100,250]])
+        M = cv2.getAffineTransform(pts1,pts2)
+        image = cv2.warpAffine(img1,M,(rows,cols))
+       
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+
+    if opc == 21:
+        etiqueta_titular.configure(text="Transpuesta")
+        image = cv2.transpose(img1)
+        image = imutils.resize(image,height=350)
+        image = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+        #print(image)
+        im=PIL.Image.fromarray(image,'RGB')
+        img3r=ImageTk.PhotoImage(image=im)
+        resultadoImagen.config(image=img3r)
+        resultadoImagen.image = img3r 
+
+    if opc >= 22:
         opc=0
         
 
