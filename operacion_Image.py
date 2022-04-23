@@ -1,21 +1,5 @@
 #Pedro Miguel Elguera Mora 19110148
 #Practica 2
-#La suma
-#La resta
-#La división
-#La Multiplicación
-#Logaritmo natural
-#Raíz
-#Potencia
-#Conjunción
-#Disyunción
-#Negación
-#Traslación
-#Escalado
-#Rotación
-#Traslación A fin.
-#Transpuesta
-#Proyección
 
 from ast import Try
 import cv2
