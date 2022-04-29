@@ -17,8 +17,6 @@ import math as ma
 opc=0
 #image = None
 
-
-
 def operaciones():
     
     img1 = cv2.imread('img1.png')
